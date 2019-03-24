@@ -29,9 +29,8 @@ public class FTPResource{
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response list() {
-		boolean response = false;
-		response = ftpService.getList();
-		return Response.status(Status.OK).entity("FTP RESOURCE Getlist implementation : "+ response).build();
+		List<String> list = ftpService.getFilesList();
+		return Response.status(Status.OK).entity(list).build();
 	}
 
 	@GET
