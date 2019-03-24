@@ -1,17 +1,18 @@
 package com.plalance.stack.configuration;
 
+import javax.ws.rs.ApplicationPath;
+
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
-
-import com.plalance.stack.resource.FTPResource;
-import com.plalance.stack.resource.GenericResource;
  
 @Component
+@ApplicationPath("/")
 public class JerseyConfig extends ResourceConfig
 {
     public JerseyConfig()
     {
-        register(GenericResource.class);
-        register(FTPResource.class);
+    	packages("com.plalance.stack.resource");
+//        register(GenericResource.class);
+//        register(FTPResource.class);
     }
 }
